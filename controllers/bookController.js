@@ -30,7 +30,7 @@ export const findAllBooks = (req, res) => {
 };
 
 export const borrowBook = (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.user._userid;
   const { ISBN } = req.body.ISBN;
   
   // update existing table by decrementing qty by 1 and adding user to the user field
@@ -51,7 +51,8 @@ export const borrowBook = (req, res) => {
 };
 
 export const checkBorrowed = (req, res) => {
-  const { userId } = req.params;
+  console.log(req.user)
+  const { userId } = req.user._userid;
   const { ISBN } = req.body.ISBN;
 
   Book.findOne({ ISBN: bookISBN })
@@ -69,7 +70,7 @@ export const checkBorrowed = (req, res) => {
 };
 
 export const returnBook = (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.user._userid;
   const { ISBN } = req.body.ISBN;
  
   // increment qty by 1 and remove user using pull function

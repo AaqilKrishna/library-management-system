@@ -11,7 +11,7 @@ export const registerValidation = (data) => {
   }
 
   // const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,20}/;
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/
   if (!passwordRegex.test(password)) {
     errors.push({
       msg: "password should have one small case, a capital letter, a symbol and a number and also the length should be greater than 8 and less than 20",
